@@ -1,0 +1,258 @@
+header{
+    background: linear-gradient(0deg,rgba(71, 56, 42, 0.7),rgb(32, 32, 32, 0.7));
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+    height: 5rem;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: all .8s ease 0s;
+    z-index: 1000;
+}
+
+
+header:hover {
+    background: var(--gra-color3);
+    /* height: 7.5rem; */
+}
+
+header .gnb li:hover {
+    max-height: 30rem; /* li에 호버하면 최대 높이가 30rem로 증가 */
+}
+
+.logo{
+    padding: 1rem 0;
+}
+
+.logo img{
+    height: 2.5rem;
+    object-fit: contain;
+}
+
+.gnb{
+    display: flex;
+    justify-content: center;
+    /* gap: 4.5rem; */
+    position: relative;
+}
+
+.gnb>li>a{
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.gnb>li:hover{
+    border-bottom: 1px solid rgb(255, 255, 255,0.8);
+}
+.gnb li:hover >a{
+    color: var(--main-color);
+    border-bottom: 1px solid rgb(255, 255, 255,0.8);
+}
+
+.depth2{
+    /* background: var(--gra-color2); */
+    position: absolute;
+    top: 3rem; left: 50%;
+    transform: translateX(-50%);
+    padding: 4.5rem 0;
+    gap: 3.5rem;
+    text-align: left;
+    width: 60%;
+    justify-content: center;
+    display: none;
+    transition: all .5s ease 0s;
+}
+
+.depth2>section{
+    flex: 1;
+}
+
+.depth2 li{
+    font-weight: var(--font-bold);
+}
+
+.dp2_left span{
+    width: 5rem;
+    height: 2px;
+    background-color: #fff;
+    display: block;
+    margin: var(--space-small) 0;
+}
+
+.dp2_left .playfair-display{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.dp2_right>img{
+    width: 100%;
+    object-fit: contain;
+}
+.dp2_right>p{
+    text-align: center;
+}
+
+.dp2_left>ul{
+    margin-top: 1rem;
+}
+.dp2_left>ul li{
+    margin-bottom: 1rem;
+}
+
+.gnb>li:hover>.depth2{
+    display: flex;
+}
+
+
+/* station */
+
+.hero{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.station1{
+    width: 100%;
+    height: 100%;
+}
+.station1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.txt{
+    position: absolute!important;
+    bottom: 5rem; right: 10rem;
+    text-align: right;
+    transition: all 1s ease .6s;
+    box-sizing: border-box;
+    gap: 1rem;
+
+}
+
+.txt>*{
+    opacity: 0;
+    /* height: 0; */
+    /* overflow: hidden; */
+    transform: translateY(25px);
+    transition: all 1s ease 0.7s;
+    margin: 1rem 0;
+
+}
+
+.txt>span{
+    padding: 0.5rem 1rem;
+    background-color: var(--main-color);
+    box-sizing: border-box;
+}
+.txt>h2{
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+.txt>h3{
+    font-size: 1.4rem;
+    font-weight: var(--font-thin);
+}
+
+.swiper-slide-active .txt>*{
+    opacity: 1;
+    /* height: 100px; */
+    transform: translateY(0px);
+    /* border: 1px solid blue; */
+}
+
+main{
+    min-height: 200rem;
+    background-color: var(--back-color);
+}
+
+/* bestSeller */
+.best_seller{
+    text-align: center;
+}
+
+.best_list{
+    display: flex;
+    gap: var(--space-small);
+    margin-top: var(--space-middle);
+}
+.best_list>li{
+    background-color: #fff;
+    box-shadow:  0px 0px 5px #ddd;
+    height: 15rem;
+    width: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.best_list>li img{
+    height: 10rem;
+    object-fit: contain;
+    transition: all .5s ease 0s;
+}
+
+.best_list>li:hover img{
+    height: 13rem;
+    transform: rotate(-5deg);
+}
+
+.best_seller .btn_common{
+    margin: var(--space-middle) 0;
+}
+
+/* classic */
+
+.classic{
+    margin-bottom: var(--space-xlarge);
+}
+
+.classic_list{
+    display: flex;
+    gap: 1rem;
+    margin-top: var(--space-middle);
+    width: 100%;
+    height: 100%;
+}
+.classic_list>li div{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    margin-bottom: var(--space-small);
+
+}
+.classic_list img{
+    margin-bottom: var(--space-small);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: all .5s ease 0s;
+}
+.classic_list img:hover{
+    transform: scale(110%);
+}
+.classic_list p{
+    text-align: center;
+    color: var(--dark-color);
+}
+.classic_img{
+    position: relative;
+}
+.classic_img:after{
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(0deg, rgba(252, 191, 68, 0.6),rgba(252, 191, 68, 0.2));
+    pointer-events: none;
+    transition: all .5s ease 0s;
+}
+.classic_img:hover:after{
+    opacity: 0;
+}

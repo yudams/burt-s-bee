@@ -1,0 +1,13 @@
+@media (max-width:1280px) {
+
+    html {font-size: var(--font-size-tab);}
+
+    .commonFrame{
+        width: auto;
+        margin: 0 1rem;
+    }
+    .txt{
+        bottom: 5rem;
+        right: 0%;
+    }
+}
