@@ -11,3 +11,8 @@
         right: 0%;
     }
 }
+
+@media (max-width:768px){
+    html {font-size: var(--font-size-mobile);}
+
+}

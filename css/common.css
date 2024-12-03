@@ -22,12 +22,17 @@ html{
     /* border: 1px solid red; */
 }
 strong{
-    /* color: var(--main-color); */
     font-size: 1.2rem;
     font-weight: var(--font-bold);
 }
 b{
     font-weight: var(--font-bold);
+}
+em{
+    text-decoration: underline;
+}
+i{
+    color: var(--main-color);
 }
 h2{
     font-size: 3rem;
@@ -51,15 +56,15 @@ p{
     line-height: 1.4;
 }
 
-section h2{
+section>h2{
     font-family: "Playfair Display", serif;
-    font-weight: 600;
+    font-weight: 800;
     font-size: 3rem;
     color: var(--dark-color);
     text-align: center;
     margin-top: var(--space-large);
 }
-main>section p{
+main>section>p{
     color: var(--dark-color);
     text-align: center;
     margin-top: var(--space-small);
@@ -67,10 +72,23 @@ main>section p{
 
 .btn_common{
     padding: .25rem 2rem;
-    font-family: "Playfair Display", serif;
+    font-family: "Playfair Display", "pretendard";
     font-size: 1.2rem;
     color: var(--dark-color);
     border: 1px solid var(--dark-color);
     cursor: pointer;
     display: inline-block;
+}
+.btn_common:hover{
+    border: 1px solid var(--main-color);
+    box-shadow: 1px 1px 10%;
+}
+
+.btn_common.white{
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 0.9rem;
+}
+.btn_common.white:hover{
+    border: 1px solid #FF6262;
 }
