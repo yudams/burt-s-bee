@@ -564,3 +564,58 @@ footer a:hover{
     display: flex;
     align-items: center;
 }
+
+/* 클래식단 */
+
+.BurtsClassic1{
+    width: 100%;
+    height: 30rem;
+    background: url("../images/sub_c_1.jpg") no-repeat 50% 50% / cover;
+}
+.BurtsClassic1>.commonFrame{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.BurtsClassic2{
+    width: 100%;
+    height: 30rem;
+    background: url("../images/sub_c_2.jpg") no-repeat 50% 50% / cover;
+}
+.BurtsClassic2>.commonFrame{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.BurtsClassic3{
+    width: 100%;
+    height: 30rem;
+    background: url("../images/sub_c_3.jpg") no-repeat 50% 50% / cover;
+}
+.BurtsClassic3>.commonFrame{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.classic_txt{
+    /* border: 1px solid red; */
+    text-align: center;
+    transform: translateX(60%);
+}
+.classic_txt.reverse{
+    transform: translateX(-60%);
+
+}
+.classic_txt>*{
+    margin-bottom: .5rem;
+}
+
+.classic_txt>img{
+    height: 10rem;
+    width: 10rem;
+}
+.classic_txt h2{
+    font-size: 2rem;
+}
