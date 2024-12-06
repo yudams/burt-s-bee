@@ -11,7 +11,7 @@ header{
     overflow: hidden;
     transition: all .8s ease 0s;
     z-index: 1000;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(8px);
 }
 
 
@@ -421,7 +421,7 @@ footer a:hover{
 
 .sub_banner{
     /* border: 1px solid red; */
-    height: 25rem;
+    height: 20rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -630,10 +630,26 @@ footer a:hover{
 .sub_banner.cls_ban1{
     background:
     linear-gradient(0deg,var(--dark-color),rgba(0, 0, 0, 0.8)),
-    url("../images/ban_cls_sub_1.jpg") no-repeat 50% 50% / cover;
+    url("../images/ban_cls_sub_1.jpg") no-repeat 50% 20% / cover;
     background-blend-mode: multiply;
     padding-top: 3rem;
-    height: 20rem;
+    flex-direction: column;
+}
+.sub_banner.cls_ban2{
+    background:
+    linear-gradient(0deg,var(--dark-color),rgba(0, 0, 0, 0.8)),
+    url("../images/ban_cls_sub_2.jpg") no-repeat 50% 20% / cover;
+    background-blend-mode: multiply;
+    padding-top: 3rem;
+    flex-direction: column;
+}
+.back_icn{
+    margin: var(--space-small);
+    margin-bottom: var(--space-middle);
+    opacity: 80%;
+}
+.sub_banner.cls_ban1 h4{
+    margin-bottom: 0;
 }
 .sub_banner h3{
     font-size: 2rem;
@@ -659,9 +675,38 @@ footer a:hover{
     font-size: 1.2rem;
     margin-bottom: 0;
 }
+
 .cls1.ointment{
     background: url("../images/sub_c_1.jpg") no-repeat 80% 50% / cover;
+}
+.cls1.beesWax{
+    background: url("../images/sub_c_3.jpg") no-repeat 80% 50% / cover;
+}
 
+.cls2{
+    width: 100%;
+    height: 38rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.cls2>.commonFrame>*{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    /* border: 1px solid red; */
+    text-align: right;
+
+}
+
+.cls2>.commonFrame>h4{
+    font-weight: var(--font-mideum);
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.cls2.lemonButter{
+    background: url("../images/sub_c_2.jpg") no-repeat 20% 50% / cover;
 }
 
 .keyword_list{
@@ -671,7 +716,7 @@ footer a:hover{
 }
 .keyword_list>li{
     background: url("../images/hexagon.svg") no-repeat center / cover;
-    filter: hue-rotate(40deg) saturate(60%);
+
     height: 9rem;
     width: 7.5rem;
     display: flex;
@@ -679,6 +724,13 @@ footer a:hover{
     justify-content: center;
     align-items: center;
     gap: .5rem;
+}
+
+.ointment .keyword_list>li{
+    filter: hue-rotate(40deg) saturate(60%);
+}
+.lemonButter .keyword_list>li{
+    filter: hue-rotate(10deg) saturate(90%) brightness(150%);
 }
 
 .keyword_list p{
@@ -742,12 +794,76 @@ footer a:hover{
 }
 
 .ingr_desc:hover>figure{
-    transform: scale(110%);
+    transform: scale(120%);
 }
 
-.aroma figure{
+.aroma_list{
     display: flex;
+    gap: 1rem;
+    margin-top: var(--space-middle);
 }
 .aroma figure img{
     flex: 1;
+}
+.aroma>figure>p{
+    text-align: center;
+    color: var(--dark-color);
+    margin-top: var(--space-small);
+}
+.mid_banner{
+    width: 100%;
+    height: 20rem;
+    background: url("../images/ban_cls_sub_1.jpg") repeat 50% 50% / cover;
+    margin-top: var(--space-large);
+}
+
+.howUse{
+    width: 100%;
+    height: 970px;
+}
+.howUse .commonFrame{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+.howUse.resQ{
+    background: url("../images/ban_resq_use.jpg") no-repeat center / cover;
+}
+.useTXT{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.use_txtH h3{
+    font-weight: var(--font-mideum);
+}
+.use_txtD{
+    margin-top: 1.5rem;
+}
+
+/* more products */
+.Mproduct_list{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3,1fr);
+    margin: var(--space-middle) 0;
+    margin-bottom: var(--space-xlarge);
+}
+.Mproduct_list>li{
+    /* border: 1px solid red; */
+    padding: 1rem;
+    /* box-shadow: 0 0 5px #eee;
+    background-color: #fff; */
+}
+.Mproduct_list>li>a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    color: var(--dark-color);
 }
