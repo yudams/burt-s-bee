@@ -8,4 +8,5 @@ window.addEventListener("load",function(){
     })
 
     smoothScrollMove(".story_list")
+
 })

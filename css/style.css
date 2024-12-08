@@ -180,7 +180,8 @@ main{
 }
 
 .best_list{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
     gap: var(--space-small);
     margin-top: var(--space-middle);
 }
@@ -230,7 +231,8 @@ main{
 }
 
 .classic_list{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
     gap: 1rem;
     margin-top: var(--space-middle);
     width: 100%;
@@ -813,15 +815,20 @@ footer a:hover{
 .mid_banner{
     width: 100%;
     height: 20rem;
-    background: url("../images/ban_cls_sub_1.jpg") repeat 50% 50% / cover;
     margin-top: var(--space-large);
+}
+.mid_banner.resQ{
+    background: url("../images/ban_cls_sub_1.jpg") repeat 50% 50% / cover;
+}
+.mid_banner.lemonButter{
+    background: url("../images/ban_cls_sub_2.jpg") repeat 50% 50% / cover;
 }
 
 .howUse{
     width: 100%;
     height: 970px;
 }
-.howUse .commonFrame{
+.howUse.resQ .commonFrame{
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -830,6 +837,16 @@ footer a:hover{
 }
 .howUse.resQ{
     background: url("../images/ban_resq_use.jpg") no-repeat center / cover;
+}
+.howUse.lemonButter .commonFrame{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    justify-content: center;
+}
+.howUse.lemonButter{
+    background: url("../images/ban_lemon_use.jpg") no-repeat center / cover;
 }
 .useTXT{
     width: 40%;
