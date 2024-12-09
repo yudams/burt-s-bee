@@ -94,18 +94,21 @@ main>section>p{
 }
 
 
-  .custom-checklist li {
+.custom-checklist li {
     position: relative;
     padding-left: 2rem; /* 체크박스를 위한 공간 */
     margin-bottom: 1rem;
-  }
+}
   
-  .custom-checklist li:before {
+.custom-checklist li:before {
     content: "✔"; /* 체크 표시 추가 */
     position: absolute;
     left: 0;
     color: var(--dark-color); /* 체크 표시 색상 */
     font-size: 1rem;
     line-height: 1.2;
-  }
+}
   
+.white{
+    color: #fff;
+  }
