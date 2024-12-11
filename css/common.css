@@ -93,6 +93,10 @@ main>section>p{
     border: 1px solid #FF6262;
 }
 
+.btn_common.small{
+    font-size: 0.9rem;
+}
+
 
 .custom-checklist li {
     position: relative;

@@ -25,6 +25,10 @@
         margin-left:1rem !important;
         margin-right:1rem !important;
     }
+    main .hero>.station1 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+        right: 0 !important;
+    }
+
     .story_list{
         width: 100%;
         flex-wrap: wrap;
@@ -150,7 +154,20 @@
     .dp2_right{
         margin: var(--space-small) 0;
     }
-
+    footer{
+        height: auto;
+        align-items: center;
+        text-align: center;
+    }
+    footer>.commonFrame{
+        flex-direction: column-reverse;
+    }
+    .foot1>ul{
+        justify-content: center;
+    }
+    .foot2{
+        margin-bottom: var(--space-middle);
+    }
 }
 @media (max-width:768px){
     html {font-size: var(--font-size-mobile);}

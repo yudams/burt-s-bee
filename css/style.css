@@ -1,3 +1,14 @@
+.fixed_menu{
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 1000;
+    transform: translateY(180%);
+    transition: all .6s ease 0s;
+}
+.fixed_menu.on{
+    transform: translateY(0%);
+}
 
 header{
     background: linear-gradient(0deg,rgba(71, 56, 42, 0.7),rgb(32, 32, 32, 0.7));
@@ -158,6 +169,9 @@ header .gnb li:hover {
     background-color: var(--main-color);
     box-sizing: border-box;
 }
+.txt.white>span{
+    color: var(--dark-color);
+}
 .txt>h2{
     font-size: 3.5rem;
     font-weight: 800;
@@ -183,8 +197,15 @@ header .gnb li:hover {
 .station1 .swiper-pagination-bullet-active {
     background: var(--main-color);
     border-radius: 5rem;
-    height: 2rem;
-    opacity: .9;
+    width: 2rem;
+    /* opacity: .9; */
+}
+
+main .hero>.station1 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+    bottom: 4rem !important;
+    right: 10rem !important;
+    width: auto !important;
+    left: initial !important;
 }
 
 
@@ -955,6 +976,14 @@ footer a:hover{
 }
 .product_list p{
     margin-top: .5rem;
+    display: -webkit-box;
+    /* Flexbox 기반으로 요소를 보여줌 */
+    -webkit-box-orient: vertical;
+    /* 박스의 방향을 세로로 설정 */
+    overflow: hidden;
+    /* 넘치는 내용은 숨김 */
+    -webkit-line-clamp: 1;
+    /* 표시할 줄 수를 1줄로 제한 */
 }
 
 .favorite{
@@ -965,6 +994,9 @@ footer a:hover{
     /* border: 1px solid red; */
 }
 .product2 .btn_common{
-    margin-top: var(--space-middle);
+    margin-top: var(--space-large);
     margin-bottom: var(--space-large);
 }
+
+/* ///////////리스트//////////// */
+.product_list{}

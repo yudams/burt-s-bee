@@ -31,10 +31,14 @@ window.addEventListener("load", function () {
     })
 
     const station1 = new Swiper(".station1", {
-        scrollbar: {
-            el: ".swiper-scrollbar",
-            hide: false,
-        },
+        // scrollbar: {
+        //     el: ".swiper-scrollbar",
+        //     hide: false,
+        // },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable:true,
+          },
         loop: true,
         autoplay: {
             delay: 2000
