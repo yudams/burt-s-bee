@@ -27,6 +27,8 @@
     <script src="./js/index.js"></script>
     <script src="./js/fixed_menu.js"></script>
     <script src="./js/product_list.js"></script>
+    <script src="./js/product_list_best.js"></script>
+
 
     <!-- 파비콘 -->
     <link rel="icon" sizes="32x32" href="./images/favicon.png" type="image/png">
@@ -47,12 +49,12 @@
         </h1>
         <ul class="commonFrame gnb">
             <li>
-                <a href="#" class="playfair-display">New & Best</a>
+                <a href="./product_list_best.html" class="playfair-display">New & Best</a>
                 <div class="depth2">
                     <section class="dp2_left">
                         <div>
                             <h3 class="playfair-display">
-                                <a href="#">New & Best</a>
+                                <a href="./product_list_best.html">New & Best</a>
                             </h3>
                             <p>지금 가장 사랑받는 제품과 자연에서 온 새로운 선물을 만나보세요.</p>
                         </div>
@@ -76,9 +78,9 @@
                         </div>
                         <span></span>
                         <ul>
-                            <li><a href="#">LIP BALM</a></li>
-                            <li><a href="#">BODY CARE</a></li>
-                            <li><a href="#">MAMA & BABY</a></li>
+                            <li><a href="./product_list_lip.html">LIP BALM</a></li>
+                            <li><a href="./product_list_lip.html">BODY CARE</a></li>
+                            <li><a href="./product_list_lip.html">MAMA & BABY</a></li>
                         </ul>
                     </section>
                     <section class="dp2_right">
@@ -151,12 +153,12 @@
         </div>
         <ul class="commonFrame mo_gnb_mid">
             <li>
-                <a href="#" class="playfair-display">New & Best</a>
+                <a href="./product_list_best.html" class="playfair-display">New & Best</a>
                 <div class="depth2">
                     <section class="dp2_left">
                         <div>
                             <h3 class="playfair-display">
-                                <a href="#">New & Best</a>
+                                <a href="./product_list_best.html">New & Best</a>
                             </h3>
                             <p>지금 가장 사랑받는 제품과 자연에서 온 새로운 선물을 만나보세요.</p>
                         </div>
@@ -180,9 +182,9 @@
                         </div>
                         <span></span>
                         <ul>
-                            <li><a href="#">LIP BALM</a></li>
-                            <li><a href="#">BODY CARE</a></li>
-                            <li><a href="#">MAMA & BABY</a></li>
+                            <li><a href="./product_list_lip.html">LIP BALM</a></li>
+                            <li><a href="./product_list_lip.html">BODY CARE</a></li>
+                            <li><a href="./product_list_lip.html">MAMA & BABY</a></li>
                         </ul>
                     </section>
                     <section class="dp2_right">
@@ -249,37 +251,72 @@
                 <p>지금 가장 사랑받는 제품과 자연에서 온 새로운 선물을 만나보세요.</b></p>
             </div>
         </div>
-        <section class="commonFrame">
-            <div class="fliter_tab">
-                <a href="#">립밤</a>
-                <a href="#">틴티드립밤</a>
-                <a href="#">립케어</a>
+        <section class="commonFrame newbest_wrap">
+            <div class="newbest_title">
+                <div class="tabs">
+                    <a href="#" id="btn_sorted_by_date">NEW</a>
+                    <a href="#" id="btn_sorted_by_rank">BEST</a>
+                </div>
+                <div class="tabs_title">
+                    <div class="newin on">
+                        <h2>NEW IN</h2>
+                        <p>버츠비의 새로운 제품을 만나보세요.</p>
+                    </div>
+                    <div class="bestseller">
+                        <h2>BEST SELLER</h2>
+                        <p>버츠비의 지금 가장 인기있는 제품을 살펴보세요.</p>
+                    </div>
+                </div>
             </div>
-            <ul class="product_list" id="product_list"></ul>
+            <div class="commonFrame products">
+                <ul class="product_list on" id="new_list"></ul>
+                <ul class="product_list" id="best_list"></ul>
+            </div>
         </section>
-
         <script>
-            let product_list = "";
-            if (product_array.length) {
-                for (let i = 0; i < product_array.length; i++) {
-                    product_list += `
-                <li>
-                    <a href="#">
-                        <figure>
-                            <span class="favorite">
-                                <img src="./images/favorite.svg" alt="favorite">
-                            </span>
-                            <img src="./images/lip/lip_product (4).jpg" alt="버츠비 비즈왁스 립 밤 위드 비타민 E & 페퍼민트">
-                        </figure>
-                    </a>
-                    <a href="#">
-                        <h3>버츠비 비즈왁스 립 밤 위드 비타민 E & 페퍼민트</h3>
-                    </a>
-                    <p>자연의 촉촉함, 상쾌한 입술로</p>
-                </li>
-                    `
+            let sorted = [...product_array].sort((a, b) => new Date(b.pdate) - new Date(a.pdate));
+            console.log(sorted)
+            document.querySelector("#btn_sorted_by_date").addEventListener("click",function(e){
+                e.preventDefault()
+                showlists(sorted)    
+            })
+
+            let ranked = [...product_array].sort((a, b) => b.prank - a.prank);
+            console.log(ranked)
+            document.querySelector("#btn_sorted_by_rank").addEventListener("click",function(e){
+                e.preventDefault()
+                showlists(ranked)    
+            })
+            
+
+            showlists(product_array)
+            function showlists(array){
+                let result_lists = "";
+                if (array.length) {
+                    for (let i = 0; i < array.length; i++) {
+                        result_lists += `
+                    <li>
+                        <a href="./product_detail.html?pid=${array[i].pid}">
+                            <figure>
+                                <span class="favorite">
+                                    <img src="./images/favorite.svg" alt="favorite">
+                                </span>
+                                <img src="./images/${array[i].pimg_file_name}" alt="${array[i].pname}">
+                            </figure>
+                        </a>
+                        <a href="./product_detail.html?pid=${array[i].pid}">
+                            <h3>${array[i].pname}</h3>
+                        </a>
+                        <p>${array[i].pdesc}</p>
+                    </li>
+                `
+                    }
+                } else {
+                    result_lists = "현재 구매 가능한 제품이 없습니다."
                 }
+                document.querySelector("#new_list").innerHTML = result_lists
             }
+            
         </script>
     </main>
     <footer>

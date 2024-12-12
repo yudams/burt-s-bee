@@ -27,6 +27,7 @@
     <script src="./js/index.js"></script>
     <script src="./js/fixed_menu.js"></script>
     <script src="./js/product_list.js"></script>
+    <!-- <script src="./js/product_detail.js"></script> -->
 
     <!-- 파비콘 -->
     <link rel="icon" sizes="32x32" href="./images/favicon.png" type="image/png">
@@ -47,12 +48,12 @@
         </h1>
         <ul class="commonFrame gnb">
             <li>
-                <a href="#" class="playfair-display">New & Best</a>
+                <a href="./product_list_best.html" class="playfair-display">New & Best</a>
                 <div class="depth2">
                     <section class="dp2_left">
                         <div>
                             <h3 class="playfair-display">
-                                <a href="#">New & Best</a>
+                                <a href="./product_list_best.html">New & Best</a>
                             </h3>
                             <p>지금 가장 사랑받는 제품과 자연에서 온 새로운 선물을 만나보세요.</p>
                         </div>
@@ -76,9 +77,9 @@
                         </div>
                         <span></span>
                         <ul>
-                            <li><a href="#">LIP BALM</a></li>
-                            <li><a href="#">BODY CARE</a></li>
-                            <li><a href="#">MAMA & BABY</a></li>
+                            <li><a href="./product_list_lip.html">LIP BALM</a></li>
+                            <li><a href="./product_list_lip.html">BODY CARE</a></li>
+                            <li><a href="./product_list_lip.html">MAMA & BABY</a></li>
                         </ul>
                     </section>
                     <section class="dp2_right">
@@ -151,12 +152,12 @@
         </div>
         <ul class="commonFrame mo_gnb_mid">
             <li>
-                <a href="#" class="playfair-display">New & Best</a>
+                <a href="./product_list_best.html" class="playfair-display">New & Best</a>
                 <div class="depth2">
                     <section class="dp2_left">
                         <div>
                             <h3 class="playfair-display">
-                                <a href="#">New & Best</a>
+                                <a href="./product_list_best.html">New & Best</a>
                             </h3>
                             <p>지금 가장 사랑받는 제품과 자연에서 온 새로운 선물을 만나보세요.</p>
                         </div>
@@ -180,9 +181,9 @@
                         </div>
                         <span></span>
                         <ul>
-                            <li><a href="#">LIP BALM</a></li>
-                            <li><a href="#">BODY CARE</a></li>
-                            <li><a href="#">MAMA & BABY</a></li>
+                            <li><a href="./product_list_lip.html">LIP BALM</a></li>
+                            <li><a href="./product_list_lip.html">BODY CARE</a></li>
+                            <li><a href="./product_list_lip.html">MAMA & BABY</a></li>
                         </ul>
                     </section>
                     <section class="dp2_right">
@@ -268,6 +269,33 @@
                 <a href="#" class="btn_common">구매하러 가기</a>
             </div>
         </div>
+        <script>
+            let pid = location.href.split("?")[1].split("=")[1]
+            console.log(product_array[pid])
+            if (pid) {
+                document.querySelector("#product_detail").innerHTML = `
+        <div class="detail_thum">
+            <img src="./images/${product_array[pid].pimg_file_name}" alt="${product_array[pid].pname}">
+        </div>
+        <div class="detail_txt">
+            <h5>${product_array[pid].pcategory}</h5>
+            <h2>${product_array[pid].pname}</h2>
+            <h3>${product_array[pid].pname_e}</h3>
+            <span></span>
+            <p>${product_array[pid].pdesc}</p>
+            <div class="ptags">
+                <span>#${product_array[pid].ptags[0]}</span>
+                <span>#${product_array[pid].ptags[1]}</span>
+                <span>#${product_array[pid].ptags[2]}</span>
+                <span>#${product_array[pid].ptags[3]}</span>
+            </div>
+            <a href="#" class="btn_common">구매하러 가기</a>
+        </div>
+    `
+            } else {
+                location.href = "./product_list.html"
+            }
+        </script>
     </main>
     <footer>
         <div class="commonFrame">

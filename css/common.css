@@ -70,6 +70,10 @@ main>section>p{
     margin-top: var(--space-small);
 }
 
+main>*:last-child{
+    margin-bottom: var(--space-xlarge);
+}
+
 .btn_common{
     padding: .25rem 2rem;
     font-family: "Playfair Display", "pretendard";
