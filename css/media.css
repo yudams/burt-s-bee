@@ -168,6 +168,9 @@
     .foot2{
         margin-bottom: var(--space-middle);
     }
+    .product_list{
+        grid-template-columns: repeat(3,1fr);
+    }
 }
 @media (max-width:768px){
     html {font-size: var(--font-size-mobile);}
@@ -214,6 +217,9 @@
         grid-auto-rows: minmax(0rem, auto);
         gap: 0;
         height: 41rem;
+    }
+    .product_list{
+        grid-template-columns: repeat(2,1fr);
     }
 
 }

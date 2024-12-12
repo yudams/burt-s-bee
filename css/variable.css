@@ -12,6 +12,7 @@
     --font-size-tab: 18px;
     --font-size-mobile: 14px;
 
+    --space-xsmall: .5rem;
     /* space small 같은 맥락 구분 여백 */
     --space-small: 1rem;
     /* space middle 다른 맥락 구분 여백 */
