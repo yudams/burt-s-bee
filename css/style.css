@@ -34,6 +34,9 @@ header:hover {
 header .gnb li:hover {
     max-height: 30rem; /* li에 호버하면 최대 높이가 30rem로 증가 */
 }
+header.sticky {
+    height: 7.5rem; /* 스크롤 내려서 일정 위치에 도달하면 높이가 7.5rem로 증가 */
+}
 
 .logo{
     padding: 1rem 0;
@@ -225,8 +228,26 @@ main{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     /* gap: var(--space-small); */
-    margin-top: var(--space-middle);
+    margin-top: var(--space-small);
 }
+.rank{
+    position: absolute;
+    background-color: rgb(252, 190, 68, .8);
+    box-shadow:  1px 1px 2px #ddd;
+    /* border: .1rem solid var(--main-color); */
+    color: var(--dark-color);
+    top: 0; left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    font-weight: 700;
+    border-radius: 0 0 .5rem 0;
+}
+
+
+
 .best_list>li{
     height: 15rem;
     /* width: 15rem!important;; */
@@ -235,9 +256,12 @@ main{
     justify-content: center;
 }
 .best_list>li a{
+    position: relative;
     background-color: #fff;
     box-shadow:  0px 0px 5px #ddd;
     padding: 2rem;
+    /* border-radius: .5rem; */
+    overflow: hidden;
 }
 
 .best_list>li img{
@@ -960,8 +984,9 @@ footer a:hover{
     margin-top: .5rem;
     margin-bottom: var(--space-small);
 }
-.product2{
-    margin-top: var(--space-xlarge);
+.commonFrame.product2{
+    margin-top: var(--space-large);
+    margin-bottom: var(--space-xlarge);
     text-align: center;
 }
 
@@ -1047,6 +1072,7 @@ footer a:hover{
     font-size: .9rem;
     color: #666;
     margin-bottom: var(--space-xsmall);
+    display: inline-block;
 }
 .favorite {
     position: absolute;
@@ -1070,8 +1096,7 @@ footer a:hover{
 }
 
 .product2 .btn_common{
-    margin-top: var(--space-large);
-    margin-bottom: var(--space-large);
+    margin-top: var(--space-middle);
 }
 
 /* ///////////리스트//////////// */
@@ -1146,18 +1171,26 @@ footer a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: var(--space-small);
+    margin-bottom: .9rem;
 }
 .tabs>a{
     /* border: 0.05rem solid #666; */
     padding: .8rem 4rem;
     box-shadow: 0 0 2px rgba(136, 136, 136, 0.5) ;
+    background-color: #fff;
+    color: var(--dark-color);
 }
 .tabs>a.on{
     background-color: var(--main-color);
 }
 .tabs_title{
     position: relative;
+    color: var(--dark-color);
+    font-family: "Playfair Display", "Pretendard";
+        & > div h2{
+            font-weight: 800;
+            margin-bottom: var(--space-xsmall);
+        }
 }
 .tabs_title>div{
     position: absolute;
@@ -1170,8 +1203,8 @@ footer a:hover{
     }
 }
 
-.product_list{
-    margin-top: var(--space-xlarge);
+.commonFrame.products{
+    margin-top: 8rem;
 }
 
 .products>.product_list{
@@ -1180,4 +1213,23 @@ footer a:hover{
     &.on{
         display: grid;
     }
+}
+/* category_list */
+
+.fliter_tab_tag{
+    margin-top: var(--space-middle);
+    display: flex;
+    gap: var(--space-small);
+
+    & > a{
+        padding: .5rem 2rem;
+        border-radius: 5rem;
+        background-color: #fff;
+        /* border: 1px solid #ccc; */
+        box-shadow: 0 0 3px #ddd;
+    }
+}
+
+.commonFrame.list_wrap{
+    margin-bottom: var(--space-xlarge);
 }

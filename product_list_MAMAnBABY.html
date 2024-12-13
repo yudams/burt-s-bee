@@ -27,7 +27,9 @@
     <script src="./js/index.js"></script>
     <script src="./js/fixed_menu.js"></script>
     <script src="./js/product_list.js"></script>
-    <!-- <script src="./js/product_detail.js"></script> -->
+    <script src="./js/fill_favorite.js"></script>
+
+
 
     <!-- 파비콘 -->
     <link rel="icon" sizes="32x32" href="./images/favicon.png" type="image/png">
@@ -245,57 +247,63 @@
     </div>
     <main>
         <div class="sub_banner sub1">
-            <div class="banner_txt">
-                <h2>Our Story</h2>
-                <p><b>자연의 규칙</b>을 따르며 1984년부터 소중한 것들을 지켜온 버츠비의 이야기</p>
+            <div class="banner_txt" data-category="BODY">
+                <h2>BODYCARE</h2>
+                <p>자연의 힘을 담은 버츠비 제품들을 만나보세요.<br>피부 본연의 아름다움을 지켜주는 선택.</b></p>
             </div>
         </div>
-        <div class="product_detail commonFrame" id="product_detail">
-            <div class="detail_thum">
-                <img src="./images/lip/lip_product (1).jpg" alt="버츠비 립 트리트먼트 7g">
+        <section class="commonFrame list_wrap">
+            <div class="fliter_tab_tag">
+                <a href="./product_list_MAMAnBABY.html?cate=MAMAnBABY&tags=전체">전체</a>
+                <a href="./product_list_MAMAnBABY.html?cate=MAMAnBABY&tags=마마">마마</a>
+                <a href="./product_list_MAMAnBABY.html?cate=MAMAnBABY&tags=베이비">베이비</a>
             </div>
-            <div class="detail_txt">
-                <h5>립밤</h5>
-                <h2>버츠비 립 트리트먼트 7g</h2>
-                <h3>Burt's Bees Lip Treatment 7g</h3>
-                <span></span>
-                <p>천연 성분으로 입술에 깊은 보습을 선사하는 립 트리트먼트</p>
-                <div class="ptags">
-                    <span>#립밤</span>
-                    <span>#립케어</span>
-                    <span>#보습</span>
-                    <span>#천연성분</span>
-                </div>
-                <a href="#" class="btn_common">구매하러 가기</a>
-            </div>
-        </div>
+            <ul class="product_list body" id="body_list"></ul>
+
+        </section>
+
         <script>
-            let pid = location.href.split("?")[1].split("=")[1]
-            console.log(product_array[pid])
-            if (pid) {
-                document.querySelector("#product_detail").innerHTML = `
-        <div class="detail_thum">
-            <img src="./images/${product_array[pid].pimg_file_name}" alt="${product_array[pid].pname}">
-        </div>
-        <div class="detail_txt">
-            <h5>${product_array[pid].pcategory}</h5>
-            <h2>${product_array[pid].pname}</h2>
-            <h3>${product_array[pid].pname_e}</h3>
-            <span></span>
-            <p>${product_array[pid].pdesc}</p>
-            <div class="ptags">
-                <span>#${product_array[pid].ptags[0]}</span>
-                <span>#${product_array[pid].ptags[1]}</span>
-                <span>#${product_array[pid].ptags[2]}</span>
-                <span>#${product_array[pid].ptags[3]}</span>
-            </div>
-            <a href="#" class="btn_common">구매하러 가기</a>
-        </div>
-    `
-            } else {
-                location.href = "./product_list.html"
+            let productList = document.querySelector("#body_list");
+            let category = decodeURIComponent(location.href.split("?")[1].split("&")[0].split("=")[1])
+            let tag_keyword = decodeURIComponent(location.href.split("?")[1].split("&")[1].split("=")[1])
+            
+
+            // URL에서 키워드 가져오기
+
+
+            // 필터링된 결과
+            let filteredProducts = product_array.filter(product =>
+                product.pcategory === category && product.ptags.includes(tag_keyword)
+                // ptags에 tag_keyword가 포함된 객체만 필터링
+            );
+            console.log(filteredProducts)
+            // 결과 렌더링
+            let result = (filteredProducts.length > 0  ? filteredProducts : product_array).map(product => `
+            <li>
+                <a href="./product_detail.html?pid=${product.pid}">
+                    <figure>
+                        <span class="favorite">
+                            <img src="./images/favorite.svg" alt="favorite">
+                        </span>
+                        <img src="./images/${product.pimg_file_name}" alt="${product.pname}">
+                    </figure>
+                </a>
+                <a href="./product_detail.html?pid=${product.pid}">
+                    <h3>${product.pname}</h3>
+                </a>
+                <p>${product.pdesc}</p>
+            </li>
+        `).join("");
+            // 필터링된 결과를 DOM에 삽입
+            productList.innerHTML = result;
+
+            // 필터링된 결과가 없을 경우 메시지 출력
+            if (filteredProducts.length === 0) {
+                productList.innerHTML = `<p>해당 키워드를 가진 제품이 없습니다.</p>`;
             }
+
         </script>
+
     </main>
     <footer>
         <div class="commonFrame">

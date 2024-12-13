@@ -20,6 +20,7 @@ window.addEventListener("load", function () {
         });
     });
 
+
     let btn_gnb_open = this.document.querySelector(".btn_gnb_open")
     let arrow = this.document.querySelector(".btn_gnb_open>img")
     let mo_gnb = this.document.querySelector(".mo_gnb")

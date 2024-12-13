@@ -6,57 +6,64 @@
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-  }
+}
 
-  
-html{
+
+html {
     font-family: "Pretendard", Pretendard, -apple-system, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-    font-size: var(--font-size-pc,20px);
+    font-size: var(--font-size-pc, 20px);
     font-weight: var(--font-medium);
     background-color: var(--back-color);
 }
 
-.commonFrame{
+.commonFrame {
     width: 1280px;
     margin: 0 auto;
     /* border: 1px solid red; */
 }
-strong{
+
+strong {
     font-size: 1.2rem;
     font-weight: var(--font-bold);
 }
-b{
+
+b {
     font-weight: var(--font-bold);
 }
-em{
+
+em {
     text-decoration: underline;
 }
-i{
+
+i {
     color: var(--main-color);
 }
-h2{
+
+h2 {
     font-size: 3rem;
     font-weight: var(--font-bold);
     line-height: 1.1;
 
 }
-h3{
+
+h3 {
     font-size: 1.1rem;
     font-weight: var(--font-bold);
     line-height: 1.4;
 }
-h4{
+
+h4 {
     font-size: 1rem;
     font-weight: var(--font-bold);
     line-height: 1.4;
 }
 
-p{
+p {
     font-weight: var(--font-medium);
     line-height: 1.4;
 }
 
-section>h2{
+section>h2 {
     font-family: "Playfair Display", serif;
     font-weight: 800;
     font-size: 3rem;
@@ -64,17 +71,15 @@ section>h2{
     text-align: center;
     margin-top: var(--space-large);
 }
-main>section>p{
+
+main>section>p {
     color: var(--dark-color);
     text-align: center;
     margin-top: var(--space-small);
 }
 
-main>*:last-child{
-    margin-bottom: var(--space-xlarge);
-}
 
-.btn_common{
+.btn_common {
     padding: .25rem 2rem;
     font-family: "Playfair Display", "pretendard";
     font-size: 1.2rem;
@@ -82,41 +87,62 @@ main>*:last-child{
     border: 1px solid var(--dark-color);
     cursor: pointer;
     display: inline-block;
+
+    transition: all .3s ease 0s;
 }
-.btn_common:hover{
+
+.btn_common:hover {
     border: 1px solid var(--main-color);
     box-shadow: 1px 1px 10%;
 }
 
-.btn_common.white{
+.btn_common.white {
     color: #fff;
     border: 1px solid #fff;
     font-size: 0.9rem;
 }
-.btn_common.white:hover{
+
+.btn_common.white:hover {
     border: 1px solid #FF6262;
 }
 
-.btn_common.small{
+.btn_common.small {
     font-size: 0.9rem;
 }
+
+.btn_common.fill {
+    padding: .5rem 4rem;
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    color: var(--dark-color);
+}
+
+.btn_common.fill:hover {
+    background-color: var(--dark-color);
+    border: 1px solid var(--dark-color);
+    color: #fff;
+}
+
 
 
 .custom-checklist li {
     position: relative;
-    padding-left: 2rem; /* 체크박스를 위한 공간 */
+    padding-left: 2rem;
+    /* 체크박스를 위한 공간 */
     margin-bottom: 1rem;
 }
-  
+
 .custom-checklist li:before {
-    content: "✔"; /* 체크 표시 추가 */
+    content: "✔";
+    /* 체크 표시 추가 */
     position: absolute;
     left: 0;
-    color: var(--dark-color); /* 체크 표시 색상 */
+    color: var(--dark-color);
+    /* 체크 표시 색상 */
     font-size: 1rem;
     line-height: 1.2;
 }
-  
-.white{
+
+.white {
     color: #fff;
-  }
+}

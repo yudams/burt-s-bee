@@ -18,6 +18,33 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => icon.classList.remove("scale"), 200);
         });
     });
+
+
+    // 부모 요소인 body에 이벤트 리스너 추가 (이벤트 위임 방식)
+    document.body.addEventListener("click", function (e) {
+        const target = e.target;
+
+        // 클릭된 요소가 .favorite 클래스의 자식이고 IMG인지 확인
+        if (target.tagName === "IMG" && target.closest(".favorite")) {
+            e.preventDefault(); // 기본 동작 방지
+
+            // 현재 이미지 src 확인 (경로를 분리해서 파일명만 비교)
+            const currentSrc = target.src.split('/').pop(); // 파일명만 추출
+            const isFilled = currentSrc === "favorite_filled.svg";
+
+            // 상태 전환 (이미지 변경)
+            target.src = isFilled
+                ? "./images/favorite.svg"
+                : "./images/favorite_filled.svg";
+
+            // 애니메이션 효과 (스케일)
+            target.classList.add("scale");
+            setTimeout(() => target.classList.remove("scale"), 200);
+        }
+    });
+
+   
+   
 });
 // document.addEventListener("DOMContentLoaded", function () {
 //     // 상위 요소를 선택
