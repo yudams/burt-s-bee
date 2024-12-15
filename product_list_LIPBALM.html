@@ -265,39 +265,87 @@
         </section>
 
         <script>
-            let productList = document.querySelector("#lip_list");
-            let category = decodeURIComponent(location.href.split("?")[1].split("&")[0].split("=")[1])
-            let tag_keyword = decodeURIComponent(location.href.split("?")[1].split("&")[1].split("=")[1])
+            // DOM 요소 가져오기
+let productList = document.querySelector("#lip_list");
+let filterLinks = document.querySelectorAll(".fliter_tab_tag a");
+
+// URL에서 카테고리와 태그 키워드 가져오기
+let category = decodeURIComponent(location.href.split("?")[1].split("&")[0].split("=")[1]);
+let tagKeyword = decodeURIComponent(location.href.split("?")[1].split("&")[1].split("=")[1]);
+
+// 필터링된 결과 생성
+let filteredProducts = product_array.filter(product =>
+    product.pcategory === category && 
+    (tagKeyword === "전체" || product.ptags.includes(tagKeyword))
+);
+
+// 필터링된 결과가 없으면 전체 제품 출력
+let result = (filteredProducts.length > 0 ? filteredProducts : product_array).map(product => `
+    <li>
+        <a href="./product_detail.html?pid=${product.pid}">
+            <figure>
+                <span class="favorite">
+                    <img src="./images/favorite.svg" alt="favorite">
+                </span>
+                <img src="./images/${product.pimg_file_name}" alt="${product.pname}">
+            </figure>
+        </a>
+        <a href="./product_detail.html?pid=${product.pid}">
+            <h3>${product.pname}</h3>
+        </a>
+        <p>${product.pdesc}</p>
+    </li>
+`).join("");
+
+// 결과를 DOM에 삽입
+productList.innerHTML = result;
+
+// 필터링 버튼 스타일 업데이트
+filterLinks.forEach(link => {
+    // href에서 태그 값을 추출
+    let tagFromHref = new URL(link.href).searchParams.get("tags");
+
+    // 현재 태그와 일치하면 'active' 클래스 추가, 아니면 제거
+    if (tagFromHref === tagKeyword) {
+        link.classList.add("active");
+    } else {
+        link.classList.remove("active");
+    }
+});
+
+        //     let productList = document.querySelector("#lip_list");
+        //     let category = decodeURIComponent(location.href.split("?")[1].split("&")[0].split("=")[1])
+        //     let tag_keyword = decodeURIComponent(location.href.split("?")[1].split("&")[1].split("=")[1])
             
 
-            // URL에서 키워드 가져오기
+        //     // URL에서 키워드 가져오기
 
 
-            // 필터링된 결과
-            let filteredProducts = product_array.filter(product =>
-                product.pcategory === category && product.ptags.includes(tag_keyword)
-                // ptags에 tag_keyword가 포함된 객체만 필터링
-            );
-            console.log(filteredProducts)
-            // 결과 렌더링
-            let result = (filteredProducts.length > 0  ? filteredProducts : product_array).map(product => `
-            <li>
-                <a href="./product_detail.html?pid=${product.pid}">
-                    <figure>
-                        <span class="favorite">
-                            <img src="./images/favorite.svg" alt="favorite">
-                        </span>
-                        <img src="./images/${product.pimg_file_name}" alt="${product.pname}">
-                    </figure>
-                </a>
-                <a href="./product_detail.html?pid=${product.pid}">
-                    <h3>${product.pname}</h3>
-                </a>
-                <p>${product.pdesc}</p>
-            </li>
-        `).join("");
-            // 필터링된 결과를 DOM에 삽입
-            productList.innerHTML = result;
+        //     // 필터링된 결과
+        //     let filteredProducts = product_array.filter(product =>
+        //         product.pcategory === category && product.ptags.includes(tag_keyword)
+        //         // ptags에 tag_keyword가 포함된 객체만 필터링
+        //     );
+        //     console.log(filteredProducts)
+        //     // 결과 렌더링
+        //     let result = (filteredProducts.length > 0  ? filteredProducts : product_array).map(product => `
+        //     <li>
+        //         <a href="./product_detail.html?pid=${product.pid}">
+        //             <figure>
+        //                 <span class="favorite">
+        //                     <img src="./images/favorite.svg" alt="favorite">
+        //                 </span>
+        //                 <img src="./images/${product.pimg_file_name}" alt="${product.pname}">
+        //             </figure>
+        //         </a>
+        //         <a href="./product_detail.html?pid=${product.pid}">
+        //             <h3>${product.pname}</h3>
+        //         </a>
+        //         <p>${product.pdesc}</p>
+        //     </li>
+        // `).join("");
+        //     // 필터링된 결과를 DOM에 삽입
+        //     productList.innerHTML = result;
 
             // 필터링된 결과가 없을 경우 메시지 출력
             if (filteredProducts.length === 0) {

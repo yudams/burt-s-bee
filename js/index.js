@@ -66,7 +66,7 @@ window.addEventListener("load", function () {
     //     station2.slideToLoop(station1.realIndex)
     // });
 
-    var swiper = new Swiper(".best_seller", {
+    var swiper = new Swiper(".BestSeller", {
         slidesPerView: 1,
         spaceBetween: 20,
         loop: true,

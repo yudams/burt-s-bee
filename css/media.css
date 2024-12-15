@@ -51,6 +51,63 @@
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .ingredients {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        height: 100%;
+        /* width: 100%; */
+    }
+
+    .ingredients figure {
+        margin: 1rem;
+        grid-row: 1/2;
+        grid-column: 1 / 3;
+    }
+
+    .ingr_desc {
+        flex-direction: column;
+    }
+
+    .ingr_txt {
+        width: auto;
+        text-align: center;
+    }
+
+    .cls1.ointment {
+        background: url("../images/sub_c_1mo.jpg") no-repeat 20% 75% / cover;
+    }
+
+    .cls1 {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .cls1>.commonFrame {
+        backdrop-filter: blur(5px);
+        background-color: rgb(255, 255, 255, .2);
+        padding: 1rem;
+    }
+
+    .cls1>.commonFrame>* {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .cls2 {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .cls2>.commonFrame {
+        backdrop-filter: blur(5px);
+        background-color: rgb(255, 255, 255, .2);
+        padding: 1rem;
+    }
+
+    .cls2>.commonFrame>* {
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 @media (max-width:812px) {
@@ -68,12 +125,17 @@
         display: block;
     }
 
+    .logo img {
+        height: 2rem;
+        object-fit: contain;
+    }
+
     .mo_gnb {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 7rem;
+        height: 5rem;
         display: block;
         /* display: grid;
         grid-template-columns: repeat(1,3fr);
@@ -106,7 +168,7 @@
         position: absolute;
         bottom: 0%;
         left: 50%;
-        transform: translate(-50%, -5%);
+        transform: translate(-50%, 30%);
     }
 
     .btn_gnb_open>img {
@@ -114,6 +176,8 @@
         cursor: pointer;
         margin-bottom: var(--space-small);
         transition: all .8s ease 0s;
+        width: 50%;
+
     }
 
     .btn_gnb_open>img.rotate {
@@ -125,6 +189,25 @@
         background-color: rgba(0, 0, 0, 0.5);
 
         transition: all .8s ease 0s;
+
+        position: relative;
+    }
+
+    .mo_gnb_mid>li::after {
+        content: "";
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        width: 1rem;
+        height: 1rem;
+        background: url("../images/icn_arrow.svg") no-repeat 50% 50% / contain;
+        transform: rotate(180deg);
+        transition: all .4s ease 0s;
+    }
+
+    .mo_gnb_mid>li:hover:after {
+        transform: rotate(0deg);
+
     }
 
     .mo_gnb_mid>li a {
@@ -146,7 +229,7 @@
 
         text-align: left;
         width: auto;
-        height: 0rem;
+        max-height: 0rem;
         margin: 0 1rem 1rem 1rem;
         box-sizing: border-box;
 
@@ -154,6 +237,8 @@
 
         transition: all .5s ease 0s;
     }
+
+
 
     .dp2_left>ul li {
         margin-bottom: 0;
@@ -176,7 +261,7 @@
     }
 
     .mo_gnb_mid>li:hover>.depth2 {
-        height: 32rem;
+        max-height: 32rem;
     }
 
     .search {
@@ -185,6 +270,11 @@
 
     .dp2_right {
         margin: var(--space-small) 0;
+    }
+
+    .dp2_right img {
+        width: 100%;
+
     }
 
     footer {
@@ -217,6 +307,14 @@
     .commonFrame.product1 {
         margin-bottom: var(--space-xlarge);
     }
+
+    .commonFrame.product_detail {
+        flex-direction: column;
+    }
+
+    .detail_txt {
+        width: 100%;
+    }
 }
 
 @media (max-width:768px) {
@@ -248,10 +346,35 @@
 
     .BurtsClassic1>.commonFrame {
         justify-content: center;
+        /* background-color: rgba(255, 255, 255, 0.5); */
+
+    }
+
+    .BurtsClassic2>.commonFrame {
+        justify-content: center;
+        /* background-color: rgba(255, 255, 255, 0.5); */
+
+    }
+
+    .BurtsClassic3>.commonFrame {
+        justify-content: center;
+    }
+
+    .classic_txt.reverse {
+        transform: translateX(0%);
     }
 
     .classic_txt {
         transform: translateX(0%);
+        backdrop-filter: blur(3px);
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 8rem;
+        height: 60%;
+        width: 60%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .classic_list {
@@ -317,5 +440,15 @@
         width: 80%;
         text-align: center;
     }
+
+    .fliter_tab_tag {
+        flex-direction: column;
+        text-align: center;
+        width: 90%;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 
 }

@@ -245,7 +245,7 @@
         </ul>
     </div>
     <main>
-        <div class="sub_banner sub1">
+        <div class="sub_banner sub4">
             <div class="banner_txt">
                 <h2>New & Best</h2>
                 <p>지금 가장 사랑받는 제품과 자연에서 온 새로운 선물을 만나보세요.</b></p>
@@ -299,7 +299,7 @@
                     array.forEach((item, index) => {
                         result_lists += `
                             <li>
-                                <a href="./product_list_${item.pcategory}.html">
+                                <a href="./product_detail.html?pid=${item.pid}">
                                     <figure>
                                         <span class="favorite">
                                             <img src="./images/favorite.svg" alt="favorite">
@@ -313,7 +313,7 @@
                                     <span class="list_category">${item.pcategory}</span>
                                 </a>
                                 <a href="./product_detail.html?pid=${item.pid}">
-                                    <h3>${item.pname}</h3>
+                                    <h4>${item.pname}</h4>
                                 </a>
                                 <p>${item.pdesc}</p>
                             </li>
