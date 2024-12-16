@@ -3,7 +3,7 @@ let product_array = [
     {
         pimg_file_name: "lip/lip_product (1).jpg",
         pid: 0,
-        pname: "버츠비 립 트리트먼트 7g",
+        pname: "버츠비 오버나이트 인텐시브 립 트리트먼트 7.08g",
         pname_e: "Burt's Bees Lip Treatment 7g",
         pdesc: "천연 성분으로 입술에 깊은 보습을 주는 립 트리트먼트",
         pcategory: "LIPBALM",

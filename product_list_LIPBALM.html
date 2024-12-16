@@ -55,7 +55,7 @@
                     <section class="dp2_left">
                         <div>
                             <h3 class="playfair-display">
-                                <a href="./product_list_best.html">Lip Balm</a>
+                                <a href="./product_list_best.html">New & Best</a>
                             </h3>
                             <p>자연에서 온 순수한 보습</p>
                         </div>
@@ -138,6 +138,30 @@
             </li>
             <li>
                 <a href="#" class="playfair-display">Search</a>
+                <div class="depth2 search">
+                    <form action="#" class="search_form">
+                        <label for="search"></label>
+                        <input type="text" id="search" placeholder="검색어를 입력해 주세요.">
+                        <button type="submit" class="btn_search">
+                            <img src="./images/icn_Search.svg" alt="돋보기 모양 검색 버튼">
+                        </button>
+                    </form>
+                    <p>추천검색어</p>
+                    <ul class="search_tag">
+                        <li>
+                            <a href="./product_list_tag.html?tags=립밤">#립밤</a>
+                        </li>
+                        <li>
+                            <a href="./product_list_tag.html?tags=레스큐">#레스큐</a>
+                        </li>
+                        <li>
+                            <a href="./product_list_tag.html?tags=상큼한">#상큼한</a>
+                        </li>
+                        <li>
+                            <a href="./product_list_tag.html?tags=시어버터">#시어버터</a>
+                        </li>
+                    </ul>
+                </div>
             </li>
         </ul>
     </header>
@@ -166,7 +190,8 @@
                         <span></span>
                     </section>
                     <section class="dp2_right">
-                        <img src="./images/img-new.jpg" alt="버츠비 카밍 라벤더 앤 허니 바디 워시">
+                        <a href="./product_detail.html?pid=13"><img src="./images/img-new.jpg"
+                                alt="버츠비 카밍 라벤더 앤 허니 바디 워시"></a>
                         <p>버츠비 카밍 라벤더 앤 허니 바디 워시</p>
                     </section>
                 </div>
@@ -229,9 +254,9 @@
                         </div>
                         <span></span>
                         <ul>
-                            <li><a href="#">about BURT’S BEES</a></li>
+                            <li><a href="./our_story.html">about BURT’S BEES</a></li>
                             <li><a href="./our_story.html">Our value</a></li>
-                            <li><a href="#">Bring back the bees</a></li>
+                            <li><a href="./our_story.html">Bring back the bees</a></li>
                         </ul>
                     </section>
                     <section class="dp2_right">
@@ -242,6 +267,30 @@
             </li>
             <li class="search">
                 <a href="#" class="playfair-display">Search</a>
+                <div class="depth2 search">
+                    <form action="#" class="search_form">
+                        <label for="search"></label>
+                        <input type="text" id="search" placeholder="검색어를 입력해 주세요.">
+                        <button type="submit" class="btn_search">
+                            <img src="./images/icn_Search.svg" alt="돋보기 모양 검색 버튼">
+                        </button>
+                    </form>
+                    <p>추천검색어</p>
+                    <ul class="search_tag">
+                        <li>
+                            <a href="./product_list_tag.html?tags=립밤">#립밤</a>
+                        </li>
+                        <li>
+                            <a href="./product_list_tag.html?tags=레스큐">#레스큐</a>
+                        </li>
+                        <li>
+                            <a href="./product_list_tag.html?tags=상큼한">#상큼한</a>
+                        </li>
+                        <li>
+                            <a href="./product_list_tag.html?tags=시어버터">#시어버터</a>
+                        </li>
+                    </ul>
+                </div>
             </li>
         </ul>
     </div>
@@ -249,7 +298,7 @@
         <div class="sub_banner sub1">
             <div class="banner_txt" data-category="LIPBALM">
                 <h2>LIPBALM</h2>
-                <p>자연의 힘을 담은 버츠비 제품들을 만나보세요.<br>피부 본연의 아름다움을 지켜주는 선택.</b></p>
+                <p>피부 본연의 아름다움을 지켜주는 선택 버츠비.</p>
             </div>
         </div>
         <section class="commonFrame list_wrap">
@@ -266,21 +315,21 @@
 
         <script>
             // DOM 요소 가져오기
-let productList = document.querySelector("#lip_list");
-let filterLinks = document.querySelectorAll(".fliter_tab_tag a");
+            let productList = document.querySelector("#lip_list");
+            let filterLinks = document.querySelectorAll(".fliter_tab_tag a");
 
-// URL에서 카테고리와 태그 키워드 가져오기
-let category = decodeURIComponent(location.href.split("?")[1].split("&")[0].split("=")[1]);
-let tagKeyword = decodeURIComponent(location.href.split("?")[1].split("&")[1].split("=")[1]);
+            // URL에서 카테고리와 태그 키워드 가져오기
+            let category = decodeURIComponent(location.href.split("?")[1].split("&")[0].split("=")[1]);
+            let tagKeyword = decodeURIComponent(location.href.split("?")[1].split("&")[1].split("=")[1]);
 
-// 필터링된 결과 생성
-let filteredProducts = product_array.filter(product =>
-    product.pcategory === category && 
-    (tagKeyword === "전체" || product.ptags.includes(tagKeyword))
-);
+            // 필터링된 결과 생성
+            let filteredProducts = product_array.filter(product =>
+                product.pcategory === category &&
+                (tagKeyword === "전체" || product.ptags.includes(tagKeyword))
+            );
 
-// 필터링된 결과가 없으면 전체 제품 출력
-let result = (filteredProducts.length > 0 ? filteredProducts : product_array).map(product => `
+            // 필터링된 결과가 없으면 전체 제품 출력
+            let result = (filteredProducts.length > 0 ? filteredProducts : product_array).map(product => `
     <li>
         <a href="./product_detail.html?pid=${product.pid}">
             <figure>
@@ -297,55 +346,55 @@ let result = (filteredProducts.length > 0 ? filteredProducts : product_array).ma
     </li>
 `).join("");
 
-// 결과를 DOM에 삽입
-productList.innerHTML = result;
+            // 결과를 DOM에 삽입
+            productList.innerHTML = result;
 
-// 필터링 버튼 스타일 업데이트
-filterLinks.forEach(link => {
-    // href에서 태그 값을 추출
-    let tagFromHref = new URL(link.href).searchParams.get("tags");
+            // 필터링 버튼 스타일 업데이트
+            filterLinks.forEach(link => {
+                // href에서 태그 값을 추출
+                let tagFromHref = new URL(link.href).searchParams.get("tags");
 
-    // 현재 태그와 일치하면 'active' 클래스 추가, 아니면 제거
-    if (tagFromHref === tagKeyword) {
-        link.classList.add("active");
-    } else {
-        link.classList.remove("active");
-    }
-});
+                // 현재 태그와 일치하면 'active' 클래스 추가, 아니면 제거
+                if (tagFromHref === tagKeyword) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            });
 
-        //     let productList = document.querySelector("#lip_list");
-        //     let category = decodeURIComponent(location.href.split("?")[1].split("&")[0].split("=")[1])
-        //     let tag_keyword = decodeURIComponent(location.href.split("?")[1].split("&")[1].split("=")[1])
-            
-
-        //     // URL에서 키워드 가져오기
+            //     let productList = document.querySelector("#lip_list");
+            //     let category = decodeURIComponent(location.href.split("?")[1].split("&")[0].split("=")[1])
+            //     let tag_keyword = decodeURIComponent(location.href.split("?")[1].split("&")[1].split("=")[1])
 
 
-        //     // 필터링된 결과
-        //     let filteredProducts = product_array.filter(product =>
-        //         product.pcategory === category && product.ptags.includes(tag_keyword)
-        //         // ptags에 tag_keyword가 포함된 객체만 필터링
-        //     );
-        //     console.log(filteredProducts)
-        //     // 결과 렌더링
-        //     let result = (filteredProducts.length > 0  ? filteredProducts : product_array).map(product => `
-        //     <li>
-        //         <a href="./product_detail.html?pid=${product.pid}">
-        //             <figure>
-        //                 <span class="favorite">
-        //                     <img src="./images/favorite.svg" alt="favorite">
-        //                 </span>
-        //                 <img src="./images/${product.pimg_file_name}" alt="${product.pname}">
-        //             </figure>
-        //         </a>
-        //         <a href="./product_detail.html?pid=${product.pid}">
-        //             <h3>${product.pname}</h3>
-        //         </a>
-        //         <p>${product.pdesc}</p>
-        //     </li>
-        // `).join("");
-        //     // 필터링된 결과를 DOM에 삽입
-        //     productList.innerHTML = result;
+            //     // URL에서 키워드 가져오기
+
+
+            //     // 필터링된 결과
+            //     let filteredProducts = product_array.filter(product =>
+            //         product.pcategory === category && product.ptags.includes(tag_keyword)
+            //         // ptags에 tag_keyword가 포함된 객체만 필터링
+            //     );
+            //     console.log(filteredProducts)
+            //     // 결과 렌더링
+            //     let result = (filteredProducts.length > 0  ? filteredProducts : product_array).map(product => `
+            //     <li>
+            //         <a href="./product_detail.html?pid=${product.pid}">
+            //             <figure>
+            //                 <span class="favorite">
+            //                     <img src="./images/favorite.svg" alt="favorite">
+            //                 </span>
+            //                 <img src="./images/${product.pimg_file_name}" alt="${product.pname}">
+            //             </figure>
+            //         </a>
+            //         <a href="./product_detail.html?pid=${product.pid}">
+            //             <h3>${product.pname}</h3>
+            //         </a>
+            //         <p>${product.pdesc}</p>
+            //     </li>
+            // `).join("");
+            //     // 필터링된 결과를 DOM에 삽입
+            //     productList.innerHTML = result;
 
             // 필터링된 결과가 없을 경우 메시지 출력
             if (filteredProducts.length === 0) {

@@ -441,6 +441,13 @@
         text-align: center;
     }
 
+    .nature:after{
+        width: 150px;
+        height: 8px;
+        top: 3rem; right: 50%;
+        transform: rotate(8deg) translateX(50%);
+    }
+
     .fliter_tab_tag {
         flex-direction: column;
         text-align: center;
@@ -449,6 +456,29 @@
         margin-left: auto;
         margin-right: auto;
     }
+    .howUse.resQ {
+        background: url(../images/ban_resq_use_mo.jpg) no-repeat center / cover;
+    }
+    .howUse.lemonButter{
+        background: url("../images/ban_lemon_use_mo.jpg") no-repeat center / cover;
+    }
+    .howUse.resQ .commonFrame{
+        align-items: center;
+        justify-content: flex-start;
+        transform: translateY(10%);
+    }
+    .howUse.lemonButter .commonFrame{
+        align-items: center;
+        justify-content: flex-start;
+        transform: translateY(10%);
+    }
 
+    .useTXT{
+        width: 80%;
+    }
+
+    .Mproduct_list {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
 }

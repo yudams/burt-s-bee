@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burt's Classic</title>
+    <title>Burt's Bees</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -27,11 +27,13 @@
     <script src="./js/index.js"></script>
     <script src="./js/fixed_menu.js"></script>
     <script src="./js/product_list.js"></script>
+    <script src="./js/fill_favorite.js"></script>
+
 
 
     <!-- 파비콘 -->
     <link rel="icon" sizes="32x32" href="./images/favicon.png" type="image/png">
-    
+
 </head>
 
 <body>
@@ -293,42 +295,92 @@
         </ul>
     </div>
     <main>
-        <div class="sub_banner sub2">
+        <div class="sub_banner sub3">
             <div class="banner_txt">
-                <h2>Burts Classic</h2>
-                <p>오랜 시간 사랑받아온 <b>클래식 제품</b></p>
+                <h2 class="pretendard">Products</h2>
+                <p>피부 본연의 아름다움을 지켜주는 선택.</p>
             </div>
         </div>
-        <section class="BurtsClassic1">
-            <div class="commonFrame">
-                <div class="classic_txt">
-                    <img src="./images/C_pro1.png" alt="오인트먼트">
-                    <p>피부 진정을 위한 허브 멀티 밤</p>
-                    <h2>레스큐 오인트먼트</h2>
-                    <a href="./classic-res-q.html" class="btn_common fillWhite">자세히 알아보기</a>
-                </div>
+        <section class="commonFrame list_wrap">
+            <div class="fliter_tab_tag">
+                <!-- <a href="./product_list_LIPBALM.html?cate=LIPBALM&tags=전체">전체</a> -->
+                <!-- <a href="./product_list_LIPBALM.html?cate=바디케어">바디케어</a> -->
             </div>
+            <ul class="product_list lip" id="tag_list"></ul>
+
         </section>
-        <section class="BurtsClassic2">
-            <div class="commonFrame">
-                <div class="classic_txt reverse">
-                    <img src="./images/C_pro2.png" alt="레몬버터 큐티클 크림">
-                    <p>손끝부터 건강하게, 큐티클 케어</p>
-                    <h2>레몬버터 큐티클 크림</h2>
-                    <a href="./classic-lemon.html" class="btn_common fillWhite">자세히 알아보기</a>
-                </div>
-            </div>
-        </section>
-        <section class="BurtsClassic3">
-            <div class="commonFrame">
-                <div class="classic_txt">
-                    <img src="./images/C_pro3.png" alt="비즈왁스 립밤">
-                    <p>입술을 위한 자연의 선물</p>
-                    <h2>비즈왁스 립밤</h2>
-                    <a href="./classic-beeswax.html" class="btn_common fillWhite">자세히 알아보기</a>
-                </div>
-            </div>
-        </section>
+
+        <script>
+            // DOM 요소 가져오기
+            let productList = document.querySelector("#tag_list");
+            let filterLinks = document.querySelectorAll(".fliter_tab_tag a");
+            let bannerH2 = document.querySelector(".banner_txt h2"); // h2 태그를 가져오기
+        
+            // URL에서 'tags' 파라미터를 가져오기
+            let tagKeyword = new URLSearchParams(window.location.search).get("tags");
+        
+            // 필터링 함수
+            function filterProductsByTag(tag) {
+                tagKeyword = tag; // 선택된 태그 업데이트
+        
+                // 필터링된 결과 생성
+                let filteredProducts = product_array.filter(product => {
+                    // 특정 태그에 포함되는 제품만 필터링
+                    return product.ptags.includes(tagKeyword);
+                });
+        
+                // 필터링된 결과가 없으면 메시지 출력
+                let result = filteredProducts.length > 0 
+                    ? filteredProducts.map(product => `
+                        <li>
+                            <a href="./product_detail.html?pid=${product.pid}">
+                                <figure>
+                                    <span class="favorite">
+                                        <img src="./images/favorite.svg" alt="favorite">
+                                    </span>
+                                    <img src="./images/${product.pimg_file_name}" alt="${product.pname}">
+                                </figure>
+                            </a>
+                            <a href="./product_detail.html?pid=${product.pid}">
+                                <h3>${product.pname}</h3>
+                            </a>
+                            <p>${product.pdesc}</p>
+                        </li>
+                    `).join("") 
+                    : `<p>해당 키워드를 가진 제품이 없습니다.</p>`; // 결과가 없으면 메시지 출력
+        
+                // 결과를 DOM에 삽입
+                productList.innerHTML = result;
+        
+                // 필터링 버튼 스타일 업데이트
+                filterLinks.forEach(link => {
+                    let tagFromHref = new URL(link.href).searchParams.get("tags");
+                    if (tagFromHref === tagKeyword) {
+                        link.classList.add("active");
+                    } else {
+                        link.classList.remove("active");
+                    }
+                });
+            }
+        
+            // 클릭 이벤트 등록
+            filterLinks.forEach(link => {
+                link.addEventListener("click", event => {
+                    event.preventDefault(); // 기본 링크 동작 방지
+                    let tagFromHref = new URL(link.href).searchParams.get("tags");
+                    filterProductsByTag(tagFromHref); // 클릭한 태그로 필터링
+                });
+            });
+        
+            // 페이지 로드 시 필터링 (tags 파라미터가 있으면 해당 태그로 필터링)
+            if (tagKeyword) {
+                filterProductsByTag(tagKeyword); // URL에서 가져온 태그로 필터링
+                bannerH2.textContent = `#${tagKeyword}`; // h2 태그에 검색한 태그 이름 삽입
+            } else {
+                productList.innerHTML = "<p>태그를 선택해 주세요.</p>"; // URL에 태그가 없다면 안내 메시지 표시
+            }
+        </script>
+
     </main>
     <footer>
         <div class="commonFrame">

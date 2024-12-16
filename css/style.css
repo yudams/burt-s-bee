@@ -124,7 +124,68 @@ header.sticky {
 .gnb>li:hover>.depth2{
     display: flex;
 }
+.gnb>li:hover>.depth2.search{
+    flex-direction: column;
+}
+.depth2.search{
+    gap: var(--space-small);
+}
+.search_form {
+    border-bottom: 3px solid #fff;
+    width: 80%;
+    height: 4rem;
+    /* background-color: rgba(255, 255, 255,.8); */
+    padding: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.search_form label {
+    display: none;
+}
+
+#search {
+    border: none;
+    width: 96%;
+    height: 1.5rem;
+    font-size: inherit;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: #fff;
+}
+
+#search:placeholder {
+    color: #fff;
+}
+
+.btn_search {
+    height: 5rem;
+    background-color: initial;
+    border: none;
+    cursor: pointer;
+}
+.search_tag{
+    display: flex;
+    gap: var(--space-small);
+}
+.search_tag>li{
+    border: 1px solid #fff;
+    box-shadow:  0px 0px 2px rgba(0, 0, 0, 0.75);
+    padding: .2rem var(--space-small);
+
+    & > a{
+        /* text-decoration: none; */
+        border-bottom: none;
+    }
+}
+
+
+.type5 .btn_section {
+    text-align: center;
+}
 
 /* station */
 
@@ -229,6 +290,8 @@ main .hero>.station1 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagi
     /* gap: var(--space-small); */
     margin-top: var(--space-small);
     box-sizing: border-box;
+    padding: 2rem 0;
+
 }
 .swiper-backface-hidden .best_list .swiper-slide {
     box-sizing: border-box;
@@ -258,6 +321,14 @@ main .hero>.station1 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagi
     display: flex;
     align-items: center;
     justify-content: center;
+
+    & > p {
+        position: absolute;
+        bottom: 3%; left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 100%;
+    }
 }
 .best_list>li a{
     position: relative;
@@ -269,7 +340,7 @@ main .hero>.station1 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagi
 }
 
 .best_list>li img{
-    height: 10rem;
+    height: 9rem;
     object-fit: contain;
     transition: all .5s ease 0s;
 }
@@ -283,9 +354,14 @@ main .hero>.station1 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagi
     margin: var(--space-middle) 0;
 }
 
-.best_seller .swiper>.swiper-button-next, .swiper-button-prev {
-    color: var(--dark-color)!important;
-    transform: translateY(2rem);
+.BestSeller .swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic, .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{
+    bottom: 0!important;
+    left: 50%!important;
+    transform: translateX(-50%)!important;
+}
+
+.BestSeller .swiper-pagination-bullet-active{
+    background: var(--main-color);
 }
 /* classic */
 
@@ -646,6 +722,15 @@ footer a:hover{
     margin-bottom: var(--space-middle);
 }
 
+.nature:after{
+    content: "";
+    position: absolute;
+    background-color: #D1202F;
+    width: 210px;
+    height: 8px;
+    top: 4rem; right: 0;
+    transform: rotate(8deg);
+}
 /* story3 */
 
 #story3{
@@ -879,6 +964,10 @@ footer a:hover{
     width: 10rem;
     height: auto;
     /* object-fit: cover; */
+    transition: all 1s ease 0s;
+}
+.ingredients>figure>img:hover{
+    transform: rotate(360deg);
 }
 .ingredients figure>h3{
     font-size: 1.8rem;
@@ -928,6 +1017,9 @@ footer a:hover{
     display: flex;
     gap: 1rem;
     margin-top: var(--space-middle);
+}
+.aroma_list>li{
+    flex: 1;
 }
 .aroma figure img{
     flex: 1;
@@ -1202,11 +1294,16 @@ footer a:hover{
     display: flex;
     gap: .5rem;
 }
-.ptags>span{
+.ptags span{
     padding: .5rem 1rem;
     background-color: #fff;
     box-shadow: 0px 0px 2px rgb(51, 51, 51, .3);
     font-size: .9rem;
+    display: inline-block;
+
+}
+.ptags span:active{
+    background-color: var(--main-color);
 }
 
 
@@ -1287,4 +1384,14 @@ footer a:hover{
 
 .commonFrame.list_wrap{
     margin-bottom: var(--space-xlarge);
+}
+
+.sub_banner>.banner_txt>.pretendard{
+    font-family: "pretendard";
+    font-size: 3rem;
+    font-weight: var(--font-bold);
+}
+
+.aaa{
+    margin-top: var(--space-xlarge);
 }
