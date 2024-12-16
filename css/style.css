@@ -1392,6 +1392,64 @@ footer a:hover{
     font-weight: var(--font-bold);
 }
 
-.aaa{
-    margin-top: var(--space-xlarge);
+.from{
+    display: flex;
+    gap: var(--space-small);
+    margin-top: var(--space-large);
+    margin-bottom: var(--space-large);
+    height: 25rem;
+    box-sizing: border-box;
+}
+.from>*{
+    flex: 1;
+}
+.from>figure{
+    display: flex;
+    background-color: var(--main-color);
+    & > img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: var(--space-small);
+        box-sizing: border-box;
+    }
+}
+.from_txt{
+    color: var(--dark-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & > h3{
+        font-size: 2rem;
+        /* margin-bottom: var(--space-xsmall); */
+    }
+    & > h4{
+        /* margin-bottom: var(--space-small); */
+        font-size: 1.2rem;
+    }
+    & > p{
+        /* margin-bottom: var(--space-large); */
+    }
+}
+
+.burt{
+    display: flex;
+    width: 100%;
+    gap: var(--space-small);
+    align-items: center;
+
+    & > * {
+        flex: 1;
+        height: 100%;
+        object-fit: cover;
+    }
+    & > img{
+        width: 50%;
+        object-fit: cover;
+    }
+}
+
+.mid_banner.sub6{
+    background: url("../images/sub_ban6.jpg") no-repeat 50% 100% / cover;
+    filter: brightness(30%);
 }
