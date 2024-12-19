@@ -125,9 +125,9 @@
                         </div>
                         <span></span>
                         <ul>
-                            <li><a href="#">about BURT’S BEES</a></li>
+                            <li><a href="./our_story_aa.html">about BURT’S BEES</a></li>
                             <li><a href="./our_story.html">Our value</a></li>
-                            <li><a href="#">Bring back the bees</a></li>
+                            <li><a href="./our_story.html">Bring back the bees</a></li>
                         </ul>
                     </section>
                     <section class="dp2_right">
@@ -254,7 +254,7 @@
                         </div>
                         <span></span>
                         <ul>
-                            <li><a href="./our_story.html">about BURT’S BEES</a></li>
+                            <li><a href="./our_story_aa.html">about BURT’S BEES</a></li>
                             <li><a href="./our_story.html">Our value</a></li>
                             <li><a href="./our_story.html">Bring back the bees</a></li>
                         </ul>
@@ -297,11 +297,13 @@
     <main>
         <div class="sub_banner sub3">
             <div class="banner_txt">
-                <h2 class="pretendard">Products</h2>
+                <h2>Products</h2>
                 <p>피부 본연의 아름다움을 지켜주는 선택.</p>
             </div>
         </div>
         <section class="commonFrame list_wrap">
+            <h2 class="pretendard">Essential Picks</h2>
+            <p>당신을 위한 필수 아이템을 지금 만나보세요.</p>
             <div class="fliter_tab_tag">
                 <!-- <a href="./product_list_LIPBALM.html?cate=LIPBALM&tags=전체">전체</a> -->
                 <!-- <a href="./product_list_LIPBALM.html?cate=바디케어">바디케어</a> -->
@@ -314,23 +316,23 @@
             // DOM 요소 가져오기
             let productList = document.querySelector("#tag_list");
             let filterLinks = document.querySelectorAll(".fliter_tab_tag a");
-            let bannerH2 = document.querySelector(".banner_txt h2"); // h2 태그를 가져오기
-        
+            let bannerH2 = document.querySelector(".list_wrap h2"); // h2 태그를 가져오기
+
             // URL에서 'tags' 파라미터를 가져오기
             let tagKeyword = new URLSearchParams(window.location.search).get("tags");
-        
+
             // 필터링 함수
             function filterProductsByTag(tag) {
                 tagKeyword = tag; // 선택된 태그 업데이트
-        
+
                 // 필터링된 결과 생성
                 let filteredProducts = product_array.filter(product => {
                     // 특정 태그에 포함되는 제품만 필터링
                     return product.ptags.includes(tagKeyword);
                 });
-        
+
                 // 필터링된 결과가 없으면 메시지 출력
-                let result = filteredProducts.length > 0 
+                let result = filteredProducts.length > 0
                     ? filteredProducts.map(product => `
                         <li>
                             <a href="./product_detail.html?pid=${product.pid}">
@@ -346,12 +348,12 @@
                             </a>
                             <p>${product.pdesc}</p>
                         </li>
-                    `).join("") 
+                    `).join("")
                     : `<p>해당 키워드를 가진 제품이 없습니다.</p>`; // 결과가 없으면 메시지 출력
-        
+
                 // 결과를 DOM에 삽입
                 productList.innerHTML = result;
-        
+
                 // 필터링 버튼 스타일 업데이트
                 filterLinks.forEach(link => {
                     let tagFromHref = new URL(link.href).searchParams.get("tags");
@@ -362,7 +364,7 @@
                     }
                 });
             }
-        
+
             // 클릭 이벤트 등록
             filterLinks.forEach(link => {
                 link.addEventListener("click", event => {
@@ -371,7 +373,7 @@
                     filterProductsByTag(tagFromHref); // 클릭한 태그로 필터링
                 });
             });
-        
+
             // 페이지 로드 시 필터링 (tags 파라미터가 있으면 해당 태그로 필터링)
             if (tagKeyword) {
                 filterProductsByTag(tagKeyword); // URL에서 가져온 태그로 필터링
