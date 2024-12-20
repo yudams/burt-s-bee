@@ -430,6 +430,22 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    #story1{
+        background: linear-gradient(0deg, #000, rgba(0, 0, 0, 0.5)), url(../images/story-1.jpg) no-repeat 50% 50% / cover;
+    }
+    #story2{
+        background: linear-gradient(0deg, #000, rgba(0, 0, 0, 0.5)), url(../images/story-2.jpg) no-repeat 50% 50% / cover;
+    }
+    #story3{
+        background: linear-gradient(0deg, #000, rgba(0, 0, 0, 0.5)), url(../images/story-3.jpg) no-repeat 50% 50% / cover;
+    }
+    #story4{
+        background: linear-gradient(0deg, #000, rgba(0, 0, 0, 0.5)), url(../images/story-4.jpg) no-repeat 50% 50% / cover;
+    }
+    #story5{
+        background: linear-gradient(0deg, #000, rgba(0, 0, 0, 0.5)), url(../images/story-5.jpg) no-repeat 50% 50% / cover;
+    }
+
     .desc1,
     .desc2 {
         display: flex;
