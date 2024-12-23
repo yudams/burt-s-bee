@@ -309,7 +309,7 @@
         margin-bottom: var(--space-xlarge);
     }
 
-    .commonFrame.product_detail {
+    .product_detail .commonFrame{
         flex-direction: column;
     }
 

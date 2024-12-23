@@ -300,51 +300,66 @@
             </div>
         </div>
         <div class="product_detail commonFrame" id="product_detail">
-            <div class="detail_thum">
-                <img src="./images/lip/lip_product (1).jpg" alt="버츠비 립 트리트먼트 7g">
-            </div>
-            <div class="detail_txt">
-                <h5>립밤</h5>
-                <h2>버츠비 립 트리트먼트 7g</h2>
-                <h3>Burt's Bees Lip Treatment 7g</h3>
-                <span></span>
-                <p>천연 성분으로 입술에 깊은 보습을 선사하는 립 트리트먼트</p>
-                <div class="ptags">
-                    <span>#립밤</span>
-                    <span>#립케어</span>
-                    <span>#보습</span>
-                    <span>#천연성분</span>
+            <div class="commonFrame">
+                <div class="detail_thum">
+                    <img src="./images/lip/lip_product (1).jpg" alt="버츠비 립 트리트먼트 7g">
                 </div>
-                <a href="#" class="btn_common">구매하러 가기</a>
+                <div class="detail_txt">
+                    <h5>립밤</h5>
+                    <h2>버츠비 립 트리트먼트 7g</h2>
+                    <h3>Burt's Bees Lip Treatment 7g</h3>
+                    <span></span>
+                    <p>천연 성분으로 입술에 깊은 보습을 선사하는 립 트리트먼트</p>
+                    <div class="ptags">
+                        <span>#립밤</span>
+                        <span>#립케어</span>
+                        <span>#보습</span>
+                        <span>#천연성분</span>
+                    </div>
+                    <a href="#" class="btn_common">구매하러 가기</a>
+                </div>
             </div>
+            <p>
+                <span>상세정보</span>
+            </p>
+            <figure>
+                <img src="./images/beeswax_detail.jpg" alt="상세 이미지">
+            </figure>
         </div>
         <script>
             let pid = location.href.split("?")[1].split("=")[1]
             console.log(product_array[pid])
             if (pid) {
                 document.querySelector("#product_detail").innerHTML = `
-        <div class="detail_thum">
-            <img src="./images/${product_array[pid].pimg_file_name}" alt="${product_array[pid].pname}">
-        </div>
-        <div class="detail_txt">
-            <h5>${product_array[pid].pcategory}</h5>
-            <h2>${product_array[pid].pname}</h2>
-            <h3>${product_array[pid].pname_e}</h3>
-            <span></span>
-            <p>${product_array[pid].pdesc}</p>
-            <div class="ptags">
-                <a href="./product_list_tag.html?tags=${product_array[pid].ptags[0]}"><span>#${product_array[pid].ptags[0]}</span></a>
-                <a href="./product_list_tag.html?tags=${product_array[pid].ptags[1]}"><span>#${product_array[pid].ptags[1]}</span></a>
-                <a href="./product_list_tag.html?tags=${product_array[pid].ptags[2]}"><span>#${product_array[pid].ptags[2]}</span></a>
-                <a href="./product_list_tag.html?tags=${product_array[pid].ptags[3]}"><span>#${product_array[pid].ptags[3]}</span></a>
-                
+        <div class="commonFrame">
+            <div class="detail_thum">
+                <img src="./images/${product_array[pid].pimg_file_name}" alt="${product_array[pid].pname}">
             </div>
-            <dl>
-                <dt>사용방법 : </dt>
-                <dd>${product_array[pid].pdetails}</dd>
-            </dl>
-            <a href="#" class="btn_common">구매하러 가기</a>
+            <div class="detail_txt">
+                <h5>${product_array[pid].pcategory}</h5>
+                <h2>${product_array[pid].pname}</h2>
+                <h3>${product_array[pid].pname_e}</h3>
+                <span></span>
+                <p>${product_array[pid].pdesc}</p>
+                <div class="ptags">
+                    <a href="./product_list_tag.html?tags=${product_array[pid].ptags[0]}"><span>#${product_array[pid].ptags[0]}</span></a>
+                    <a href="./product_list_tag.html?tags=${product_array[pid].ptags[1]}"><span>#${product_array[pid].ptags[1]}</span></a>
+                    <a href="./product_list_tag.html?tags=${product_array[pid].ptags[2]}"><span>#${product_array[pid].ptags[2]}</span></a>
+                    <a href="./product_list_tag.html?tags=${product_array[pid].ptags[3]}"><span>#${product_array[pid].ptags[3]}</span></a>
+                </div>
+                <dl>
+                    <dt>사용방법 : </dt>
+                    <dd>${product_array[pid].pdetails}</dd>
+                </dl>
+                <a href="https://smartstore.naver.com/burtsbees" class="btn_common">구매하러 가기</a>
+            </div>
         </div>
+        <p>
+        <span>상세정보</span>
+        </p>
+        <figure>
+            <img src="./images/beeswax_detail.jpg" alt="상세 이미지">
+        </figure>
     `
             } else {
                 location.href = "./product_list.html"
