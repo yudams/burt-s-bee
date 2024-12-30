@@ -40,7 +40,7 @@ let product_array = [
     {
         pimg_file_name: "lip/lip_product (4).jpg",
         pid: 3,
-        pname: "버츠비 비즈왁스 립밤 위드 비타민 E n 페퍼민트",
+        pname: "버츠비 비즈왁스 립밤 위드 비타민 E & 페퍼민트",
         pname_e: "Burt's Bees Beeswax LIPBALM with Vitamin E n Peppermint",
         pdesc: "비즈왁스와 페퍼민트로 입술을 건강하고 상쾌하게",
         pcategory: "LIPBALM",
